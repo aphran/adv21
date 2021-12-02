@@ -11,8 +11,11 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-secrets.yaml
+config.yaml
 adv21
-bknotmain
+advGetter/advGetter
+day*-*/day*-*
 go.sum
+oauthServ
 input
+.DS_Store

@@ -44,12 +44,12 @@ func getAdvInput(index int) error {
     defer resp.Body.Close()
 
     //Prepare output directory
-    err = os.MkdirAll(common.InputPath, 0755)
+    err = os.MkdirAll(common.ConfigData.InputPath, 0755)
     if err != nil {
         log.Fatal(err)
     }
     //Write to file
-    inputFile := fmt.Sprintf("%s/%d", common.InputPath, index)
+    inputFile := fmt.Sprintf("%s/%d", common.ConfigData.InputPath, index)
     out, err := os.Create(inputFile)
     if err != nil {
         log.Panic(err)
@@ -60,12 +60,12 @@ func getAdvInput(index int) error {
 
 func main() {
     common.LoadConfig()
-    fmt.Println(fmt.Sprintf("Using input data path: ./%s/\n", common.InputPath))
+    fmt.Println(fmt.Sprintf("Using input data path: %s/\n", common.ConfigData.InputPath))
 
     if fmt.Sprintf("%v", time.Now().Month()) == "December" {
         for k := 1; k <= time.Now().Day(); k++ {
             fmt.Println("Getting input data for day", k)
-            //getAdvInput(k)
+            getAdvInput(k)
         }
     }
 }
