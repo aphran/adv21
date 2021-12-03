@@ -18,4 +18,4 @@ day*-*/day*-*
 go.sum
 oauthServ
 input
-.DS_Store
+*.DS_Store
